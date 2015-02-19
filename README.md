@@ -48,39 +48,40 @@ The primary class that installs and configures pgbouncer.  It also ensures the p
 **Parameters within `pgbouncer`:**
 
 #####`databases`
-	An array of entries to be written to the databases section in the pbbouncer.ini
-	Array entry format: database_alias_name = connection_string
+An array of entries to be written to the databases section in the pbbouncer.ini
+Array entry format: database_alias_name = connection_string
 
 #####`logfile`
-   	The full path to the log file.
-   	Default: /var/log/postgresql/pgbouncer.log
+The full path to the log file.
+Default: /var/log/postgresql/pgbouncer.log
 
 #####`pidfile`
-   	The full path to the pid file for the pgbouncer process.
-   	Default: /var/run/postgresql/pgbouncer.pid
+The full path to the pid file for the pgbouncer process.
+Default: /var/run/postgresql/pgbouncer.pid
 
 #####`listen_addr`
-   	The address that are listened to by pgbouncer.
-   	Default: * (all addresses)
+The address that are listened to by pgbouncer.
+Default: * (all addresses)
 
 #####`listen_port`
-   	The port for pgbouncer to listen on.
-   	Default: 6432
+The port for pgbouncer to listen on.
+Default: 6432
 
 #####`admin_users`
-   	A comma-seperated list of users allowed to access the admin console who
-   	then can perform connection pool management operations and obtain
-   	information about the connection pools.
+A comma-seperated list of users allowed to access the admin console who
+then can perform connection pool management operations and obtain
+information about the connection pools.
 
 #####`stats_users`
-   	A comma-seperated list of users allowed to access the admin console
-   	who can obtain information about the connection pools.
+A comma-seperated list of users allowed to access the admin console
+who can obtain information about the connection pools.
 
 #####`auth_list`
-   	An array of auth values (user/password pairs).
-   	This array is written to /var/lib/postgresql/pgbouncer.auth line by line.
-   	Array entry format: 
-    "\"<username>\" \"<password\"
+An array of auth values (user/password pairs).
+This array is written to /var/lib/postgresql/pgbouncer.auth line by line.
+
+Array entry format: 
+"\"<username>\" \"<password\"
 
 ## Limitations
 
