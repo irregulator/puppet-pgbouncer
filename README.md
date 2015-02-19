@@ -22,7 +22,7 @@ By default, the service uses port 6432 as this is the default port of pgbouncer.
 
 Requires a Debian based system.
 
-### pgbouncer with amazon_ses
+### Beginning with pgbouncer 
 
 To install pgbouncer and have it connect to a database with default parameters.
 Where all pgbouncer is installed on the postgresql server.  The database db2 is available.  An authorized user is postgres with password postgres.
