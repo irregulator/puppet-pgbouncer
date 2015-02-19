@@ -80,7 +80,7 @@ who can obtain information about the connection pools.
 An array of auth values (user/password pairs).
 This array is written to /var/lib/postgresql/pgbouncer.auth line by line.
 
-Array entry format: "<username>" "<password>"
+Array entry format: "USERNAME" "PASSWORD"
 
 ## Limitations
 
