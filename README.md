@@ -80,7 +80,7 @@ who can obtain information about the connection pools.
 #####`auth_type`
 Method used by PgBouncer to authenticate client connections
 to PgBouncer. Values may be md5, crypt, plain, trust, or any. 
-Default: md5
+Default: trust
 
 #####`auth_list`
 An array of auth values (user/password pairs).
