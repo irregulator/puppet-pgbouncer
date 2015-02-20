@@ -41,6 +41,11 @@
 #   Array entry format: 
 #     "\"<username>\" \"<password\"
 #
+# [*pool_mode*]
+#   Specifies when the server connection can be released back
+#   into the pool. Values may be session, transaction, or statement. 
+#   Default is transaction
+#
 # === Variables
 #
 # [*confdir*]
@@ -69,6 +74,7 @@ class pgbouncer (
   $admin_users = 'postgres',
   $stats_users = 'postgres',
   $auth_list = undef,
+  $pool_mode = 'transaction'
 ){
   
   # === Variables === #

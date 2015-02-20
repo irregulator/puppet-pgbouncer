@@ -2,6 +2,7 @@
 
 [![Puppet Forge](http://img.shields.io/puppetforge/v/conzar/pgbouncer.svg)](https://forge.puppetlabs.com/conzar/pgbouncer)
 [![Build Status](https://travis-ci.org/Conzar/pgbouncer.svg?branch=master)](https://travis-ci.org/Conzar/pgbouncer)
+[![Project Stats](https://www.openhub.net/p/puppet-pgbouncer/widgets/project_thin_badge.gif)](https://www.openhub.net/p/puppet-pgbouncer)
 
 ## Overview
 Installs and configures [pgbouncer](https://wiki.postgresql.org/wiki/PgBouncer).
@@ -81,6 +82,11 @@ An array of auth values (user/password pairs).
 This array is written to /var/lib/postgresql/pgbouncer.auth line by line.
 
 Array entry format: "USERNAME" "PASSWORD"
+
+#####`pool_mode`
+Specifies when the server connection can be released back
+into the pool. Values may be session, transaction, or statement. 
+Default: transaction
 
 ## Limitations
 

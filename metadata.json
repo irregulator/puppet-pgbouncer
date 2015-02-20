@@ -1,6 +1,6 @@
 {
   "name": "conzar-pgbouncer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Michael Speth",
   "summary": "Deploys pgbouncer",
   "license": "GPL-3.0+",
