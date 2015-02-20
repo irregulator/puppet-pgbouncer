@@ -12,7 +12,7 @@ pidfile = <%= @pidfile %>
 listen_addr = <%= @listen_addr %>
 listen_port = <%= @listen_port %>
 unix_socket_dir = /var/run/postgresql
-auth_type = trust
+auth_type = <%= @auth_type %>
 auth_file = /etc/pgbouncer/userlist.txt
 admin_users = <%= @admin_users %>
 stats_users = <%= @stats_users %>

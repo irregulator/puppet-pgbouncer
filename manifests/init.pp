@@ -35,6 +35,11 @@
 #   A comma-seperated list of users allowed to access the admin console
 #   who can obtain information about the connection pools.
 #
+# [*auth_type*]
+#   Method used by PgBouncer to authenticate client connections
+#   to PgBouncer. Values may be md5, crypt, plain, trust, or any. 
+#   Default: trust
+#
 # [*auth_list*] 
 #   An array of auth values (user/password pairs).
 #   This array is written to /var/lib/postgresql/pgbouncer.auth line by line.
@@ -73,6 +78,7 @@ class pgbouncer (
   $listen_port = '6432',
   $admin_users = 'postgres',
   $stats_users = 'postgres',
+  $auth_type = 'trust',
   $auth_list = undef,
   $pool_mode = 'transaction'
 ){
