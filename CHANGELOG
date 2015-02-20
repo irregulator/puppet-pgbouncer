@@ -1,0 +1,18 @@
+2015-02-20
+Version 0.1.1
+==============
+
+Summary:
+Added additional parameter
+
+Changes:
+  - Added openhub badge to readme.
+  - Added pool_mode
+
+2015-02-19
+Version 0.1.0
+=============
+
+Summary:
+
+Initial Release.
