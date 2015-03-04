@@ -68,7 +68,8 @@
 # Michael Speth <spethm@landcareresearch.co.nz>
 #
 # === Copyright
-# GPLv3
+#
+# GPL-3.0+
 #
 class pgbouncer (
   $databases = [''],

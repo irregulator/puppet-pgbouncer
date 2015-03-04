@@ -1,7 +1,7 @@
 # pgbouncer
 
-[![Puppet Forge](http://img.shields.io/puppetforge/v/conzar/pgbouncer.svg)](https://forge.puppetlabs.com/conzar/pgbouncer)
-[![Build Status](https://travis-ci.org/Conzar/pgbouncer.svg?branch=master)](https://travis-ci.org/Conzar/pgbouncer)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/landcareresearch/puppet-pgbouncer.svg)](https://forge.puppetlabs.com/landcaresearch/puppet-pgbouncer)
+[![Bitbucket Build Status](http://build.landcareresearch.co.nz/app/rest/builds/buildType%3A%28id%3ALinuxAdmin_PuppetPgbouncer_PuppetPgbouncer%29/statusIcon)](http://build.landcareresearch.co.nz/viewType.html?buildTypeId=LinuxAdmin_PuppetPgbouncer_PuppetPgbouncer&guest=1)
 [![Project Stats](https://www.openhub.net/p/puppet-pgbouncer/widgets/project_thin_badge.gif)](https://www.openhub.net/p/puppet-pgbouncer)
 
 ## Overview
