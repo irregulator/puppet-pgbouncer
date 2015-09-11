@@ -2,9 +2,9 @@
 ;; Do not manually update
 
 [databases]
-<% @databases.each do |entry| %>
-  <%= entry -%>
-<% end %>
+<% @databases.each do |entry| -%>
+    <%= entry %>
+<% end -%>
 
 [pgbouncer]
 logfile = <%= @logfile %>
@@ -21,4 +21,9 @@ server_reset_query = DISCARD ALL
 server_check_query = select 1
 server_check_delay = 30
 max_client_conn = 1000
-default_pool_size = 20
+default_pool_size = <%= @default_pool_size %>
+
+;; Custom Options
+<% @options.each do |option, value| -%>
+    <%=option-%> = <%=value%>
+<% end -%>

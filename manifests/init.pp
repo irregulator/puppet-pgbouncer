@@ -51,6 +51,12 @@
 #   into the pool. Values may be session, transaction, or statement. 
 #   Default is transaction
 #
+# [*default_pool_size*]
+#   The default connection pool size
+#
+# [*options*]
+#   Add your own custom extra options to the config file
+#
 # === Variables
 #
 # [*confdir*]
@@ -66,6 +72,7 @@
 # === Authors
 #
 # Michael Speth <spethm@landcareresearch.co.nz>
+# Ethan Brouwer <supereman16@gmail.com>
 #
 # === Copyright
 #
@@ -81,13 +88,15 @@ class pgbouncer (
   $stats_users = 'postgres',
   $auth_type = 'trust',
   $auth_list = undef,
-  $pool_mode = 'transaction'
+  $pool_mode = 'transaction',
+  $default_pool_size = 20,
+  $options = {},
 ){
-  
+
   # === Variables === #
   $confdir = '/etc/pgbouncer'
   $conf    = "${confdir}/pgbouncer.ini"
-  
+
   # check OS family
   if $::osfamily != 'debian' {
     fail("Unsupported OS ${::osfamily}.  Please use a debian based system")
@@ -126,7 +135,7 @@ class pgbouncer (
     ensure    => running,
     subscribe => File["${confdir}/userlist.txt", $conf],
   }
-  
+
   anchor{'pgbouncer::end':
     require => Service['pgbouncer'],
   }
