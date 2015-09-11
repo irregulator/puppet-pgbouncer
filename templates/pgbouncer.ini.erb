@@ -3,7 +3,7 @@
 
 [databases]
 <% @databases.each do |entry| -%>
-    <%= entry %>
+<%= entry %>
 <% end -%>
 
 [pgbouncer]
@@ -25,5 +25,5 @@ default_pool_size = <%= @default_pool_size %>
 
 ;; Custom Options
 <% @options.each do |option, value| -%>
-    <%=option-%> = <%=value%>
+<%=option-%> = <%=value%>
 <% end -%>
