@@ -1,7 +1,7 @@
 {
   "name": "landcareresearch-pgbouncer",
   "version": "0.1.2",
-  "author": "Michael Speth",
+  "author": "Landcare Research",
   "summary": "Deploys pgbouncer",
   "license": "GPL-3.0+",
   "source": "git://bitbucket.org/landcareresearch/puppet-pgbouncer.git",

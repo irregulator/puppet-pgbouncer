@@ -69,11 +69,6 @@
 #
 #  class { pgbouncer: }
 #
-# === Authors
-#
-# Michael Speth <spethm@landcareresearch.co.nz>
-# Ethan Brouwer <supereman16@gmail.com>
-#
 # === Copyright
 #
 # GPL-3.0+

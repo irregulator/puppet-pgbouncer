@@ -1,3 +1,11 @@
+## 2015-06-21 Release 0.1.3
+### Summary
+Merge
+
+### Changed
+ - Merged community changes to clean up doco
+ - Moved contributors to a text file
+
 ## 2015-03-04 Release 0.1.2
 ### Summary
 Account Migration
