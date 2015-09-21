@@ -1,3 +1,7 @@
+## 2015-06-21 Release 0.1.5, 0.1.4
+### Summary
+Updated documentation
+
 ## 2015-06-21 Release 0.1.3
 ### Summary
 Merge
