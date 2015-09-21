@@ -99,4 +99,4 @@ Works with debian based OS's.
 
 ## Development
 
-The module is open source and available on github.  Please fork!
+The module is open source and available on bitbucket.  Please fork!
