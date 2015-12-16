@@ -35,6 +35,23 @@
 #   A comma-seperated list of users allowed to access the admin console
 #   who can obtain information about the connection pools.
 #
+# [*owner_user*]
+#   User who owns userlist.txt (and potentially other files). Should be
+#   changed to the user pgbouncer runs as.
+#   Default: 'root'
+#
+# [*owner_group*]
+#   Group which owns userlist.txt (and potentially other files). Should be
+#   changed to the group pgbouncer runs as.
+#   Default: 'root'
+#
+# [*userlist_mode*]
+#   Group which owns userlist.txt (and potentially other files). Should be
+#   changed to the group pgbouncer runs as. NOTE: this setting is
+#   insecure, and should be adjusted, after checking the $owner_user and
+#   $owner_group values.
+#   Default: '0644'
+#
 # [*auth_type*]
 #   Method used by PgBouncer to authenticate client connections
 #   to PgBouncer. Values may be md5, crypt, plain, trust, or any. 
@@ -81,6 +98,9 @@ class pgbouncer (
   $listen_port = '6432',
   $admin_users = 'postgres',
   $stats_users = 'postgres',
+  $owner_user = 'root',
+  $owner_group = 'root',
+  $userlist_mode = '0644',
   $auth_type = 'trust',
   $auth_list = undef,
   $pool_mode = 'transaction',
@@ -124,6 +144,9 @@ class pgbouncer (
     ensure  => file,
     content => template('pgbouncer/userlist.txt.erb'),
     require => File[$conf],
+    owner   => $owner,
+    group   => $owner_group,
+    mode    => $userlist_mode,
   }
 
   service {'pgbouncer':
