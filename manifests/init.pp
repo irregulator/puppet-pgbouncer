@@ -38,19 +38,18 @@
 # [*owner_user*]
 #   User who owns userlist.txt (and potentially other files). Should be
 #   changed to the user pgbouncer runs as.
-#   Default: 'root'
+#   Default: 'postgres'
 #
 # [*owner_group*]
 #   Group which owns userlist.txt (and potentially other files). Should be
-#   changed to the group pgbouncer runs as.
-#   Default: 'root'
+#   changed to the group pgbouncer runs as if not 'postgres'.
+#   Default: 'postgres'
 #
 # [*userlist_mode*]
 #   Group which owns userlist.txt (and potentially other files). Should be
-#   changed to the group pgbouncer runs as. NOTE: this setting is
-#   insecure, and should be adjusted, after checking the $owner_user and
+#   changed to the group pgbouncer runs as if not 'postgres'.
 #   $owner_group values.
-#   Default: '0644'
+#   Default: '0600'
 #
 # [*auth_type*]
 #   Method used by PgBouncer to authenticate client connections
