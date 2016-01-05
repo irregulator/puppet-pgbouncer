@@ -1,3 +1,12 @@
+## 2016-01-?? Release 0.1.8, 0.1.7, 0.1.6
+### Summary
+Added User Permissions
+
+### Changed
+  - Added user owner and group to userlist.txt
+  - Added vagrant directory for testing
+  - Updated Rakefile for automated testing (lint)
+
 ## 2015-06-21 Release 0.1.5, 0.1.4
 ### Summary
 Updated documentation
