@@ -90,21 +90,21 @@
 # GPL-3.0+
 #
 class pgbouncer (
-  $databases = [''],
-  $logfile = '/var/log/postgresql/pgbouncer.log',
-  $pidfile = '/var/run/postgresql/pgbouncer.pid',
-  $listen_addr = '*',
-  $listen_port = '6432',
-  $admin_users = 'postgres',
-  $stats_users = 'postgres',
-  $owner_user = 'postgres',
-  $owner_group = 'postgres',
-  $userlist_mode = '0600',
-  $auth_type = 'trust',
-  $auth_list = undef,
-  $pool_mode = 'transaction',
+  $databases         = [''],
+  $logfile           = '/var/log/postgresql/pgbouncer.log',
+  $pidfile           = '/var/run/postgresql/pgbouncer.pid',
+  $listen_addr       = '*',
+  $listen_port       = '6432',
+  $admin_users       = 'postgres',
+  $stats_users       = 'postgres',
+  $owner_user        = 'postgres',
+  $owner_group       = 'postgres',
+  $userlist_mode     = '0600',
+  $auth_type         = 'trust',
+  $auth_list         = undef,
+  $pool_mode         = 'transaction',
   $default_pool_size = 20,
-  $options = {},
+  $options           = {},
 ){
 
   # === Variables === #
@@ -143,7 +143,7 @@ class pgbouncer (
     ensure  => file,
     content => template('pgbouncer/userlist.txt.erb'),
     require => File[$conf],
-    owner   => $owner,
+    owner   => $owner_user,
     group   => $owner_group,
     mode    => $userlist_mode,
   }

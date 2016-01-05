@@ -1,0 +1,6 @@
+
+# puppet forge modules
+mod 'puppetlabs/apt'             , '2.2.0'
+mod 'puppetlabs/stdlib'          , '4.9.0'
+mod 'puppetlabs/concat'          , '1.2.4'
+mod 'puppetlabs/postgresql'      , '4.6.0'
