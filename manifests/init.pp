@@ -12,11 +12,11 @@
 #
 # [*logfile*]
 #   The full path to the log file.
-#   Default: /var/log/postgresql/pgbouncer.log
+#   Default: OS dependant, see params class.
 #
 # [*pidfile*]
 #   The full path to the pid file for the pgbouncer process.
-#   Default: /var/run/postgresql/pgbouncer.pid
+#   Default: OS dependant, see params class.
 #
 # [*listen_addr*]
 #   The address that are listened to by pgbouncer.
@@ -38,17 +38,15 @@
 # [*owner_user*]
 #   User who owns userlist.txt (and potentially other files). Should be
 #   changed to the user pgbouncer runs as.
-#   Default: 'postgres'
+#   Default: OS dependant, see params class.
 #
 # [*owner_group*]
 #   Group which owns userlist.txt (and potentially other files). Should be
 #   changed to the group pgbouncer runs as if not 'postgres'.
-#   Default: 'postgres'
+#   Default: OS dependant, see params class.
 #
 # [*userlist_mode*]
-#   Group which owns userlist.txt (and potentially other files). Should be
-#   changed to the group pgbouncer runs as if not 'postgres'.
-#   $owner_group values.
+#   The mode for the userlist.txt files.
 #   Default: '0600'
 #
 # [*auth_type*]
@@ -69,9 +67,26 @@
 #
 # [*default_pool_size*]
 #   The default connection pool size
+#   Default: 20
 #
 # [*options*]
 #   Add your own custom extra options to the config file
+#
+# [*rpm_url*]
+#   The string is the URL to a RPM repository for installing pgbouncer.
+#   Only needed for redhat based distros.
+#   Leave as undef if you have already configured a yum repo outside of this
+#   class.
+#   The URLs for your specific OS can be found here:
+#   http://yum.postgresql.org/repopackages.php
+#   Default: undef
+#
+# [*rpm_name*]
+#   The name of the rpm excluding the extension.
+#   This is important as the package resource needs the name to match
+#   in order to prevent puppet from trying to install the package again.
+#   Note, required if rpm_url is set.
+#   Default: undef
 #
 # === Variables
 #
@@ -91,32 +106,52 @@
 #
 class pgbouncer (
   $databases         = [''],
-  $logfile           = '/var/log/postgresql/pgbouncer.log',
-  $pidfile           = '/var/run/postgresql/pgbouncer.pid',
+  $logfile           = $pgbouncer::params::logfile,
+  $pidfile           = $pgbouncer::params::pidfile,
   $listen_addr       = '*',
   $listen_port       = '6432',
   $admin_users       = 'postgres',
   $stats_users       = 'postgres',
-  $owner_user        = 'postgres',
-  $owner_group       = 'postgres',
+  $owner_user        = $pgbouncer::params::owner_user,
+  $owner_group       = $pgbouncer::params::owner_group,
   $userlist_mode     = '0600',
   $auth_type         = 'trust',
   $auth_list         = undef,
   $pool_mode         = 'transaction',
   $default_pool_size = 20,
   $options           = {},
-){
+  $rpm_url           = undef,
+  $rpm_name          = undef,
+) inherits pgbouncer::params {
+
+  anchor{'pgbouncer::begin':}
 
   # === Variables === #
   $confdir = '/etc/pgbouncer'
   $conf    = "${confdir}/pgbouncer.ini"
 
   # check OS family
-  if $::osfamily != 'debian' {
-    fail("Unsupported OS ${::osfamily}.  Please use a debian based system")
-  }
+  case $::osfamily {
+    'redhat': {
+      if $rpm_url {
 
-  anchor{'pgbouncer::begin':}
+        package{'pgdg_repo':
+          ensure   => installed,
+          name     => $rpm_name,
+          source   => $rpm_url,
+          provider => 'rpm',
+          before   => Package['pgbouncer'],
+          require  => Anchor['pgbouncer::begin']
+        }
+      }
+    }
+    'debian': {
+      # do nothing
+    }
+    default: {
+      fail("Unsupported osfamily ${::osfamily}")
+    }
+  }
 
   # Same package name for both redhat based and debian based
   # Note, pgbouncer doesn't seem to be available in centos 6.4 or 6.5

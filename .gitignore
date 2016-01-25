@@ -1,7 +1,6 @@
 *.swp
 *.swo
 pkg
-tests
 Gemfile.lock
 .project
 .settings
@@ -9,3 +8,4 @@ vagrant/puppet/modules/*
 .vagrant
 /vagrant/nbproject/private/
 vagrant/puppet/logs
+results.txt

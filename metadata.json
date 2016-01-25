@@ -10,11 +10,18 @@
   "dependencies": [],
   "operatingsystem_support": [
     {
+      "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "12.04",
-        "14.04"
-      ],
-      "operatingsystem": "Ubuntu"
+        "14.04",
+        "15.04"
+      ]
+    },
+    {
+      "operatingsystem": "Centos",
+      "operatingsystemrelease": [
+        "7.0"
+      ]
     }
   ]
 }

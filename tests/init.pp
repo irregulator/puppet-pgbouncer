@@ -20,7 +20,7 @@
   postgresql::server::pg_hba_rule { 'local postgres':
     type        => 'local',
     user        => 'postgres',
-    auth_method => 'peer',
+    auth_method => 'trust',
     order       => '001',
   }
 
@@ -42,7 +42,7 @@
   postgresql::server::pg_hba_rule { 'ipv4 localhost connections':
     type        => 'host',
     user        => 'all',
-    address     => 'localhost',
+    address     => '127.0.0.1/32',
     auth_method => 'md5',
     order       => '04',
   }
@@ -62,6 +62,8 @@
     auth_list => [ "\"postgres\" \"postgres\"",
       "\"${user}\" \"${pass}\""
     ],
+    rpm_url   => $::pg_rpm_url,
+    rpm_name  => $::pg_rpm_name,
     require   => [
       Class['postgresql::server'],
       Postgresql::Server::Database[$db],
