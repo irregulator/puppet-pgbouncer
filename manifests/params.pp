@@ -23,6 +23,6 @@ class pgbouncer::params {
       fail("Unsupported osfamily ${::osfamily}")
     }
   }
-  $logfile     = "${log_dir}/pgbouncer.log"
-  $pidfile     = "${log_dir}/pgbouncer.pid"
+  $logfile = "${log_dir}/pgbouncer.log"
+  $pidfile = '/var/run/postgresql/pgbouncer.pid'
 }
