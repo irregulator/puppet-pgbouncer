@@ -1,3 +1,7 @@
+## 2016-06-14
+### Summary
+Fixed an issue with the pid file.
+
 ## 2016-01-26 Release 0.1.9, 0.1.8, 0.1.7, 0.1.6
 ### Summary
 Support for Centos
