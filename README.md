@@ -109,6 +109,12 @@ Default: transaction
 The default connection pool size.  
 Default: 20
 
+#### `autodb_idle_timeout`
+If the automatically created (via “*”) database pools have been unused
+this many seconds, they are freed. The negative aspect of that is that
+their statistics are also forgotten. [seconds]  
+Default: 3600.0
+
 ##### `options`
 Add your own custom extra options to the config file.
 

@@ -69,6 +69,12 @@
 #   The default connection pool size
 #   Default: 20
 #
+# [*autodb_idle_timeout*]
+#   If the automatically created (via “*”) database pools have been unused
+#   this many seconds, they are freed. The negative aspect of that is that
+#   their statistics are also forgotten. [seconds]
+#   Default: 3600.0
+#
 # [*options*]
 #   Add your own custom extra options to the config file
 #
@@ -105,23 +111,24 @@
 # GPL-3.0+
 #
 class pgbouncer (
-  $databases         = [''],
-  $logfile           = $pgbouncer::params::logfile,
-  $pidfile           = $pgbouncer::params::pidfile,
-  $listen_addr       = '*',
-  $listen_port       = '6432',
-  $admin_users       = 'postgres',
-  $stats_users       = 'postgres',
-  $owner_user        = $pgbouncer::params::owner_user,
-  $owner_group       = $pgbouncer::params::owner_group,
-  $userlist_mode     = '0600',
-  $auth_type         = 'trust',
-  $auth_list         = undef,
-  $pool_mode         = 'transaction',
-  $default_pool_size = 20,
-  $options           = {},
-  $rpm_url           = undef,
-  $rpm_name          = undef,
+  $databases           = [''],
+  $logfile             = $pgbouncer::params::logfile,
+  $pidfile             = $pgbouncer::params::pidfile,
+  $listen_addr         = '*',
+  $listen_port         = '6432',
+  $admin_users         = 'postgres',
+  $stats_users         = 'postgres',
+  $owner_user          = $pgbouncer::params::owner_user,
+  $owner_group         = $pgbouncer::params::owner_group,
+  $userlist_mode       = '0600',
+  $auth_type           = 'trust',
+  $auth_list           = undef,
+  $pool_mode           = 'transaction',
+  $default_pool_size   = 20,
+  $autodb_idle_timeout = '3600',
+  $options             = {},
+  $rpm_url             = undef,
+  $rpm_name            = undef,
 ) inherits pgbouncer::params {
 
   anchor{'pgbouncer::begin':}

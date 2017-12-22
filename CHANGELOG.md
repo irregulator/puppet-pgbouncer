@@ -1,3 +1,10 @@
+## 2017-12-22
+### Summary
+Added a new parameter
+
+## Changed
+  - Added a paramater for setting the timeout of database pool connections.
+
 ## 2016-06-14
 ### Summary
 Fixed an issue with the pid file.

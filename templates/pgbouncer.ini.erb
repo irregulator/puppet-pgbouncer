@@ -22,6 +22,7 @@ server_check_query = select 1
 server_check_delay = 30
 max_client_conn = 1000
 default_pool_size = <%= @default_pool_size %>
+autodb_idle_timeout = <%= @autodb_idle_timeout %>
 
 ;; Custom Options
 <% @options.each do |option, value| -%>
