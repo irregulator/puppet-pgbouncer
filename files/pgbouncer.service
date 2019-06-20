@@ -1,0 +1,17 @@
+[Unit]
+Description=PostgreSQL connection pooler
+After=network.target
+
+[Service]
+Type=simple
+User=postgres
+Group=postgres
+ExecStart=/usr/sbin/pgbouncer /etc/pgbouncer/pgbouncer.ini
+ExecReload=/bin/kill -SIGHUP $MAINPID
+TimeoutSec=300
+OOMScoreAdjust=-1000
+RuntimeDirectory=pgbouncer
+RuntimeDirectoryMode=1775
+
+[Install]
+WantedBy=multi-user.target
