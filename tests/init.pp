@@ -62,8 +62,6 @@
     auth_list => [ "\"postgres\" \"postgres\"",
       "\"${user}\" \"${pass}\""
     ],
-    rpm_url   => $::pg_rpm_url,
-    rpm_name  => $::pg_rpm_name,
     require   => [
       Class['postgresql::server'],
       Postgresql::Server::Database[$db],

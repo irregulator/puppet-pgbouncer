@@ -1,17 +1,11 @@
-# == Class: pgbouncer::params
-#
-# Parameters to be set for pgbouncer
-#
-# === Copyright
-#
-# GPL-3.0+
+# @summary Parameters to be set for pgbouncer
 #
 class pgbouncer::params {
   case $::osfamily {
     'redhat': {
-      $log_dir     = '/var/log/pgbouncer'
-      $owner_user  = 'pgbouncer'
-      $owner_group = 'pgbouncer'
+      $log_dir         = '/var/log/pgbouncer'
+      $owner_user      = 'pgbouncer'
+      $owner_group     = 'pgbouncer'
     }
     'debian': {
       # do nothing
@@ -23,6 +17,7 @@ class pgbouncer::params {
       fail("Unsupported osfamily ${::osfamily}")
     }
   }
-  $logfile = "${log_dir}/pgbouncer.log"
-  $pidfile = '/var/run/postgresql/pgbouncer.pid'
+  $logfile         = "${log_dir}/pgbouncer.log"
+  $pidfile         = '/var/run/pgbouncer/pgbouncer.pid'
+  $unix_socket_dir = '/var/run/pgbouncer'
 }

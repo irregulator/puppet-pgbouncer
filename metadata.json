@@ -7,14 +7,16 @@
   "source": "git://bitbucket.org/landcareresearch/puppet-pgbouncer.git",
   "project_page": "https://bitbucket.org/landcareresearch/puppet-pgbouncer",
   "issues_url": "https://bitbucket.org/landcareresearch/puppet-pgbouncer/issues",
-  "dependencies": [],
+  "dependencies": [
+
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "12.04",
-        "14.04",
-        "15.04"
+        "16.04",
+        "18.04",
+        "20.04"
       ]
     },
     {
@@ -23,6 +25,14 @@
         "7.0"
       ]
     }
-  ]
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.18.1",
+  "template-url": "pdk-default#1.18.1",
+  "template-ref": "tags/1.18.1-0-g3d2e75c"
 }
-
