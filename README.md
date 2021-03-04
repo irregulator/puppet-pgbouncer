@@ -52,5 +52,5 @@ The module is open source and available on bitbucket.  Please fork!
 
 ## Testing
 
-This module includes a vagrant directory that contains vagrant code and scripts for testing on the supported platforms.
-Please see vagrant/README.md file additional information.
+This module uses the [puppet-functional-tester](https://bitbucket.org/landcareresearch/puppet-functional-tester) for testing the supported platforms.
+Please see puppet-functional-tester/README.md file additional information.

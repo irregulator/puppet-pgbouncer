@@ -1,5 +1,9 @@
 # pgbouncer Puppet Module
 
+## 2021-03-04 Version 6.0.1
+
+- Migrated to the puppet-functional-tester for managing functional testing.
+
 ## 2021-03-03 Version 6.0.0
 
 - Upgraded for Puppet 6 compliance.
