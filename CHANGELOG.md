@@ -1,5 +1,9 @@
 # pgbouncer Puppet Module
 
+## 2021-03-04 Version 6.0.2
+
+- Fixed a pidfile mismatch.
+
 ## 2021-03-04 Version 6.0.1
 
 - Migrated to the puppet-functional-tester for managing functional testing.
